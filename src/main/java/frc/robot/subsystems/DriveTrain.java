@@ -49,8 +49,7 @@ public class DriveTrain extends SubsystemBase
 
     //  Motores izquierdos
     MotorLS1.follow(MotorLM);
-    MotorLS2.follow(MotorLS1);
-    MotorLM.follow(MotorLS2);
+    MotorLS2.follow(MotorLM);
 
     //  Motores derechos
     MotorRS1.follow(MotorRM);
@@ -70,8 +69,7 @@ public class DriveTrain extends SubsystemBase
 
   public void Manejo(double Vertical, double Giro)
   {
-    DifDrive.arcadeDrive(-Vertical, Giro);
-
+    DifDrive.tankDrive(Vertical, Giro);
 
   }
 
