@@ -25,17 +25,19 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  
+
   private final DriveTrain driveTrain = new DriveTrain();
   private final Intake Infeed = new Intake();
 
 
   private final XboxController Control1 = new XboxController(PuertosXbox.Control1);
 
-  private Button botonX = new JoystickButton(Control1, 3);
-  private Button botonY = new JoystickButton(Control1, 4);
+
   private Button botonA = new JoystickButton(Control1, 1);
   private Button botonB = new JoystickButton(Control1, 2);
+  private Button botonX = new JoystickButton(Control1, 3);
+  private Button botonY = new JoystickButton(Control1, 4);
+  
 
   private double speedMod;
 
@@ -96,7 +98,7 @@ public class RobotContainer {
 
   public double getGiros()
   {
-    return Control1.getRawAxis(0);
+    return Control1.getRawAxis(4);
   }
 
 

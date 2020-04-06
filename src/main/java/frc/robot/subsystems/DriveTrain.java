@@ -53,7 +53,7 @@ public class DriveTrain extends SubsystemBase
 
     //  Motores derechos
     MotorRS1.follow(MotorRM);
-    MotorRS2.follow(MotorLM);
+    MotorRS2.follow(MotorRM);
 
 
     // Configuraciones
@@ -69,7 +69,7 @@ public class DriveTrain extends SubsystemBase
 
   public void Manejo(double Vertical, double Giro)
   {
-    DifDrive.tankDrive(Vertical, Giro);
+    DifDrive.arcadeDrive(Vertical, Giro);
 
   }
 

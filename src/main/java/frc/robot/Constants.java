@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public final class Constants
 {
@@ -36,6 +37,20 @@ public final class Constants
 
         public static final boolean InversionMotores = true;
         public static final boolean InversionMotoresfalsa = false;
+
+    }
+
+    public static final class PuertosClimber
+    {
+        public static final int motorClimber = 9;
+        public static final MotorType tipoMotor = MotorType.kBrushless;
+        
+        public static final int Solenoideizq = 1;
+        public static final int Solenoideder = 2;
+        public static final int CompressorPuerto = 0;
+
+        public static final boolean EstadoSolenoideActivado = true;
+        public static final boolean EstadoSolenoideDesactivado = false;
 
     }
 
