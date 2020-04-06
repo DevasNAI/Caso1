@@ -13,7 +13,17 @@ public final class Constants
 {
     public static final class PuertosXbox
     {
-        public static final int Control1 = 0;
+        public static final int control1 = 0;
+
+        public static final int boton_A = 1;
+        public static final int boton_B = 2;
+        public static final int boton_X = 3;
+        public static final int boton_Y = 4;
+        public static final int bumper_L = 5;
+        public static final int bumper_R = 6;
+        public static final int boton_Bk = 7;
+        public static final int boton_S = 7;
+
     }
 
     public static final class MotoresDrivetrain

@@ -9,13 +9,16 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.Constants.PuertosXbox;
+import static frc.robot.Constants.PuertosXbox.*;
+
+import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -28,16 +31,27 @@ public class RobotContainer {
 
   private final DriveTrain driveTrain = new DriveTrain();
   private final Intake Infeed = new Intake();
+  private final Climber climb = new Climber();
 
 
-  private final XboxController Control1 = new XboxController(PuertosXbox.Control1);
+  private final XboxController Control1 = new XboxController(control1);
 
 
-  private Button botonA = new JoystickButton(Control1, 1);
-  private Button botonB = new JoystickButton(Control1, 2);
-  private Button botonX = new JoystickButton(Control1, 3);
-  private Button botonY = new JoystickButton(Control1, 4);
-  
+  private Button botonA = new JoystickButton(Control1, boton_A);
+  private Button botonB = new JoystickButton(Control1, boton_B);
+  private Button botonX = new JoystickButton(Control1, boton_X);
+  private Button botonY = new JoystickButton(Control1, boton_Y);
+
+
+  private Button BumperL = new JoystickButton(Control1, bumper_L);
+  private Button BumperR = new JoystickButton(Control1, bumper_R);
+
+
+
+
+
+
+
 
   private double speedMod;
 
@@ -67,7 +81,7 @@ public class RobotContainer {
   {
     // Intake
     botonX
-      .whenPressed(new InstantCommand(() -> Infeed.setAtrasIntake()))
+      .whenPressed(new InstantCommand(() -> Infeed.setAdelanteIntake()))
       .whenReleased(new InstantCommand(() -> Infeed.setzerontake()));
 
     botonY
@@ -81,6 +95,12 @@ public class RobotContainer {
     botonA
      .whenPressed(new InstantCommand(() -> Infeed.setAdelanteLanza()))
      .whenReleased(new InstantCommand(() -> Infeed.setLanzazero())); 
+
+
+    BumperR.whenPressed(new InstantCommand(() -> climb.ActivateElevator()))
+           .whenReleased(new InstantCommand(() -> climb.DesactivarElevator()));
+
+    BumperL.whenPressed(new InstantCommand(() -> climb.DesactivarMovimiento()));
     
 
 
